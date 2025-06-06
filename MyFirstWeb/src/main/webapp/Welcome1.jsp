@@ -1,0 +1,15 @@
+<html>
+
+<body bgcolor="blue">
+
+<% String usr=request.getParameter("user");
+
+String pss=request.getParameter("pass");
+
+out.println("Username is "+usr+" and password is "+pss);
+
+%>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+package com.example.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+import com.example.bean.StudentBean;
+import com.example.dao.StudentDao;
+
+@WebServlet("/update")
+
+public class StudentUpdateController extends HttpServlet{
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.setContentType("text/html");
+		int rno=Integer.parseInt(req.getParameter("rollno"));
+		String sname=req.getParameter("name");
+		String sbranch=req.getParameter("branch");
+		
+		StudentBean sb = new StudentBean();
+		sb.setRollno(rno);
+		sb.setName(sname);
+		sb.setBranch(sbranch);
+		
+		
+		
+		PrintWriter pw=res.getWriter();
+		pw.println("<html><body bgcolor='D5E5D5'>");
+//		pw.println("<p>Rollno "+rno+" Name "+sname+" Branch "+sbranch);
+		pw.println(StudentDao.updateStudent(sb)+" record updated successfully...");
+		StudentDao.getCon();
+		pw.println("</body></html>");
+	
+	}
+
+}
+

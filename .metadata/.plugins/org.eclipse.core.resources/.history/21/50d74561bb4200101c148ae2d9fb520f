@@ -1,0 +1,118 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2c3e50;
+}
+ 
+div {
+  background: #ffffffdd;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow:
+    0 8px 20px rgba(81, 45, 168, 0.12),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+ 
+/* Heading */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #512da8;
+  letter-spacing: 3px;
+  user-select: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 4px rgba(81, 45, 168, 0.3);
+}
+ 
+/* Subheading */
+p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #6a6a6a;
+}
+ 
+/* Form inputs */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  border: 2px solid #d1c4e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+ 
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #512da8;
+  box-shadow: 0 0 8px rgba(81, 45, 168, 0.4);
+}
+ 
+/* Labels inline with input text */
+form > label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #5e35b1;
+}
+ 
+/* Button */
+button[type="submit"] {
+  background-color: #9575cd;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(149, 117, 205, 0.4);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  user-select: none;
+}
+ 
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #7e57c2;
+  box-shadow: 0 8px 16px rgba(126, 87, 194, 0.7);
+  transform: translateY(-2px);
+  outline: none;
+}
+ 
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(126, 87, 194, 0.5);
+}
+ 
+/* Responsive */
+@media (max-width: 480px) {
+  div {
+    padding: 30px 25px;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  button[type="submit"] {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+}

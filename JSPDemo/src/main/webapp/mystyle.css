@@ -1,0 +1,21 @@
+body{
+
+	background-image:url("https://upload.wikimedia.org/wikipedia/commons/2/24/Amrit_Bharat_trainset.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+
+}
+
+#myform{
+
+	padding-top:200px;
+	padding-left:300px;
+
+}
+
+input{
+
+	border-radius:50px;
+	border:5px solid blue;
+
+}

@@ -1,0 +1,6 @@
+package com.railway.bean;
+
+public class RailwayCrossingBean {
+	private String name;
+	
+}

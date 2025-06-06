@@ -1,0 +1,19 @@
+<html>
+
+<body bgcolor="yellow">
+
+<form action="Two.jsp">
+
+Enter Rollno : <input type="text" name="rollno"/><br/>
+
+Enter Name : <input type="text" name="name"/><br/>
+
+Enter Branch : <input type="text" name="branch"/><br/>
+
+<button type="submit">Click me</button>
+
+</form>
+
+</body>
+
+</html>

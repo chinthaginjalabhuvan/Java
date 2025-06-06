@@ -1,0 +1,84 @@
+package com.main;
+
+import com.service.CustomerService;
+import com.service.OrderService;
+import com.service.SalesReportService;
+import com.dao.ProductDAO;
+import com.dao.StockDAO;
+import java.util.Scanner;
+
+public class BikeStoreApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ProductDAO productDAO = new ProductDAO();
+        CustomerService customerService = new CustomerService();
+        OrderService orderService = new OrderService();
+        SalesReportService salesReportService = new SalesReportService();
+        StockDAO stockDAO = new StockDAO();
+
+        while (true) {
+            System.out.println("\n=== BikeStores Management System ===");
+            System.out.println("1. View Products");
+            System.out.println("2. Search for Customer");
+            System.out.println("3. Register New Customer");
+            System.out.println("4. Place Order");
+            System.out.println("5. Check Inventory");
+            System.out.println("6. Generate Sales Report");
+            System.out.println("7. Exit");
+            System.out.print("Choose an option: ");
+
+            int choice;
+            try {
+                choice = sc.nextInt();
+                sc.nextLine();  // Consume newline
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a number.");
+                sc.nextLine(); // Clear input buffer
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\n=== Product Catalog ===");
+                    productDAO.getAllProducts().forEach(System.out::println);
+                    break;
+
+                case 2:
+                    customerService.searchCustomer();
+                    break;
+
+                case 3:
+                    customerService.addCustomer();
+                    break;
+
+                case 4:
+                    orderService.placeOrder();
+                    break;
+
+                case 5:
+                    System.out.print("Enter Product ID: ");
+                    int productId = sc.nextInt();
+                    System.out.print("Enter Store ID: ");
+                    int storeId = sc.nextInt();
+                    System.out.print("Enter Quantity: ");
+                    int quantity = sc.nextInt();
+                    
+                    boolean available = stockDAO.checkStock(productId, storeId, quantity);
+                    System.out.println(available ? "Stock available!" : "Insufficient stock!");
+                    break;
+
+                case 6:
+                    salesReportService.generateSalesReport();
+                    break;
+
+                case 7:
+                    System.out.println("Exiting BikeStores Management System...");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice! Please select a valid option.");
+            }
+        }
+    }
+}
+

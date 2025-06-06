@@ -1,0 +1,11 @@
+package com.ex;
+import com.ex.*;
+public class lion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		lion l =new lion();
+		l.fight();
+	}
+
+}

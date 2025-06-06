@@ -1,0 +1,9 @@
+<%@page import="com.example.dao.StudentDao" %>
+<%@page import="com.example.bean.StudentBean" %>
+<%@page import="java.util.ArrayList" %>
+<html>
+<body bgcolor="#e59be5 ">
+<%ArrayList<StudentBean> allStudent = StudentDao.selectAll(); %>
+
+</body>
+</html>

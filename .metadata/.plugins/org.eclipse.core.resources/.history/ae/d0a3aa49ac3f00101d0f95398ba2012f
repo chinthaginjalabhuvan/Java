@@ -1,0 +1,11 @@
+package com.ex.inner1;
+
+import com.ex.Monkey;
+
+public class Inner1Class {
+public static void main(String[] args) {
+	
+	Monkey.eat();
+	
+}
+}

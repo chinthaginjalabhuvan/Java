@@ -1,0 +1,16 @@
+package com.ex;
+
+public class Monkey {
+public static void eat()
+{
+	System.out.println("Eats Bananas");
+}
+private void run()
+{
+	System.out.println("Runs fast");
+}
+public static void main(String[] args) {
+	Monkey m=new Monkey();
+	m.run();
+}
+}

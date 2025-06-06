@@ -1,0 +1,40 @@
+package com.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DBConnection {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/sales","root","Password@12");
+		Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/production","root","Password@12");
+		String q ="Select * from sales.orders";
+		String p = "Select * from production.products";
+		Statement stmt1 = con1.createStatement();
+		Statement stmt2 = con2.createStatement();
+		 ResultSet resultSet1 = stmt1.executeQuery(q);
+		 ResultSet resultSet2 = stmt2.executeQuery(p);
+		 while( resultSet1.next()){
+			 int orderId = resultSet1.getInt("order_id");
+			 System.out.println(orderId);
+			 
+		 }
+		 while( resultSet2.next()){
+			 int productId = resultSet2.getInt("product_id");
+			 String productName = resultSet2.getString("product_name");
+			 System.out.println(productId+" "+productName);
+			 
+		 }
+		 resultSet1.close();
+		 stmt1.close();
+		 con1.close();
+		 resultSet2.close();
+		 stmt2.close();
+		 con2.close();
+		
+		
+	}
+}

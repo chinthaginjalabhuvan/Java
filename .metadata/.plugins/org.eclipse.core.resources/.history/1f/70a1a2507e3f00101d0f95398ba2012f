@@ -1,0 +1,22 @@
+package com.example;
+
+public class Calculator {
+	
+	void square(int x) {
+		int result = x*x;
+		System.out.println("square is "+result);
+	}
+	
+	static void add(int x,int y) {
+		System.out.println("the addition of "+x+" and "+y+" is "+(x+y));
+	}
+
+	public static void main(String[] args) {
+		Calculator c = new Calculator();
+		c.square(5);
+		add(22,33);
+		
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.ex.inner1;
+
+import com.ex.Monkey;
+
+public class Inner1Class extends Monkey{
+public static void main(String[] args) {
+	
+	Monkey.eat();
+	Inner1Class i = new Inner1Class();
+	i.jump();
+}
+}

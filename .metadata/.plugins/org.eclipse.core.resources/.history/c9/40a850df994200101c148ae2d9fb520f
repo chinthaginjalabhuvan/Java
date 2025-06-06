@@ -1,0 +1,18 @@
+<html>
+<head>
+<link rel="stylesheet" href="./mystyles.css"></link>
+</head>
+<body>
+<h1>Railway Crossing</h1>
+<p>User Register</p>
+<form action="Validate.jsp">
+Enter Name <br/>
+<input type="text" placeholder="john peterson" name="name"/><br/>
+Enter email <br/>
+<input type="email" placeholder="john@email.com" name="email"/><br/>
+Enter password <br/>
+<input type="password" placeholder="****" name="email"/><br/>
+<button type="submit">Register</button>
+</form>
+</body>
+</html>

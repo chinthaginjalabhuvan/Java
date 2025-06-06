@@ -1,0 +1,200 @@
+<%@page import="com.railway.dao.RailwayCrossingDao"%>
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<%@page import="java.util.ArrayList"%>
+
+<html>
+
+	<head>
+		<style>
+			body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff8e1, #fff3e0);
+  margin: 40px 20px;
+  color: #5d4037; /* deep brown text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ 
+h1 {
+  text-align: center;
+  color: #3e2723; /* dark coffee brown */
+  margin-bottom: 50px;
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 4px #b28860; /* subtle warm shadow */
+  user-select: none;
+}
+ 
+/* ===== Table Container ===== */
+table {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 60px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255, 248, 220, 0.85); /* creamy warm */
+  box-shadow:
+    0 8px 16px rgba(109, 76, 65, 0.15), /* softer brown shadow */
+    0 4px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  word-wrap: break-word;
+  table-layout: fixed;
+  cursor: default;
+}
+ 
+th, td {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid #d7ccc8; /* soft border */
+  word-wrap: break-word;
+  color: #5d4037;
+}
+ 
+th {
+  background: #6d4c41; /* warm coffee brown */
+  color: #fff8e1; /* cream text */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  user-select: none;
+  box-shadow: inset 0 -3px 6px rgba(109, 76, 65, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+ 
+/* Soft pastel row colors */
+tbody tr:nth-child(odd) {
+  background-color: #fff8e1; /* light cream */
+}
+ 
+tbody tr:nth-child(even) {
+  background-color: #f5f1ea; /* very light warm beige */
+}
+ 
+/* Hover effect with warm soft tone */
+tbody tr:hover {
+  background-color: #d7ccc8; /* soft taupe */
+  color: #3e2723;
+  font-weight: 600;
+  transition: background-color 0.4s ease;
+}
+ 
+/* Action column */
+#act {
+  width: 180px;
+  text-align: center;
+}
+ 
+/* Forms inside action cell inline */
+#status form {
+  display: inline-block;
+  margin: 0 8px;
+}
+ 
+/* Buttons */
+button {
+  background-color: #a1887f; /* warm taupe */
+  border: none;
+  color: #fff8e1; /* cream text */
+  padding: 10px 22px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  box-shadow: 0 4px 6px rgba(161, 136, 127, 0.4);
+  user-select: none;
+  outline-offset: 3px;
+  outline-color: transparent;
+  outline-style: solid;
+  overflow: visible;
+  font-family: 'Georgia', serif;
+}
+ 
+button:hover,
+button:focus {
+  background-color: #6d4c41; /* darker coffee brown */
+  box-shadow: 0 6px 12px rgba(109, 76, 65, 0.7);
+  transform: translateY(-2px);
+  outline-color: #b39ddb;
+}
+ 
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(109, 76, 65, 0.5);
+}
+ 
+/* Responsive: wrap cells instead of scroll */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+ 
+  th, td {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+ 
+  #act {
+    width: auto;
+  }
+ 
+  button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h1>Admin Home Page</h1>
+		<%
+		int i=1;
+		ArrayList<RailwayCrossingBean> all=RailwayCrossingDao.selectAll();%>
+		<%
+		for(RailwayCrossingBean rcb:all){
+			%>
+			<form action="AddForm.jsp">
+						<%session.setAttribute("add",rcb); %>
+						<button type="submit">Add</button>		
+			</form>	
+		<%i++;}%>
+		
+		
+		<table border="4">
+		<tr><th>Sr.No</th><th>Name</th><th>Address</th><th>Landmark</th><th>Train Schedule</th><th>Person In-charge</th><th>Status</th><th id="act">Action</th></tr>
+		<%
+		for(RailwayCrossingBean rcb:all){
+			%>
+			<tr>
+			<td><%=i %></td><td><%=rcb.getName() %></td><td><%=rcb.getAddress() %></td><td><%=rcb.getLandmark() %></td><td><%=rcb.getTrainschedules() %></td><td><%=rcb.getPersonincharges() %></td><td><%=rcb.getStatus() %></td>
+			<td id="status">		
+
+			<form action="UpdateForm.jsp">
+						<%session.setAttribute("update",rcb); %>
+						<button type="submit">Update</button>		
+			</form>		
+			<form action="DeleteCrossingForm.jsp">		
+			<%session.setAttribute("aaa",rcb.getName()); %>		
+			<button type="submit">Delete</button>		
+			</form>						
+			</td>		
+		<%i++;}%>		
+		</tr>						
+		</table>
+		
+	</body>
+
+</html>
+

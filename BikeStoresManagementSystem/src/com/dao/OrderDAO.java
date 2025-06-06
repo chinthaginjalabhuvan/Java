@@ -1,0 +1,45 @@
+package com.dao;
+import com.util.DBConnection;
+import java.sql.*;
+public class OrderDAO {
+    public void addOrder(int customerId, int productId, int quantity, double totalAmount, int itemId) {
+        Connection con = DBConnection.getConnection();
+        if (con == null) {
+            System.out.println("Cannot place order - Database connection failed!");
+            return;
+        }
+        try {
+            con.setAutoCommit(false); // Start transaction
+            String orderQuery = "INSERT INTO sales.orders (customer_id, order_date, total_amount, order_status, required_date, store_id, staff_id) VALUES (?, NOW(), ?, ?, DATE_ADD(NOW(), INTERVAL 7 DAY), ?, ?)";
+            PreparedStatement orderStmt = con.prepareStatement(orderQuery, Statement.RETURN_GENERATED_KEYS);
+            orderStmt.setInt(1, customerId);
+            orderStmt.setDouble(2, totalAmount);
+            orderStmt.setInt(3, 1); // Default order status: Pending
+            orderStmt.setInt(4, 1); // Store ID placeholder
+            orderStmt.setInt(5, 1); // Staff ID placeholder
+            orderStmt.executeUpdate();
+            ResultSet rs = orderStmt.getGeneratedKeys();
+            if (rs.next()) {
+                int orderId = rs.getInt(1);
+                String itemQuery = "INSERT INTO sales.order_items (order_id, product_id, quantity, item_id) VALUES (?, ?, ?, ?)";
+                PreparedStatement itemStmt = con.prepareStatement(itemQuery);
+                itemStmt.setInt(1, orderId);
+                itemStmt.setInt(2, productId);
+                itemStmt.setInt(3, quantity);
+                itemStmt.setInt(4, itemId);
+                itemStmt.executeUpdate();
+            }
+            con.commit(); // Commit transaction
+            System.out.println("Order placed successfully!");
+        } catch (SQLException e) {
+            try {
+                con.rollback(); // Rollback on error
+                System.out.println("Order placement failed, rolling back transaction...");
+            } catch (SQLException rollbackEx) {
+                rollbackEx.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+}
+

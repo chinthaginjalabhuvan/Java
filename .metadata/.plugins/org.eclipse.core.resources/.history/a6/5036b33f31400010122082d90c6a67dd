@@ -1,0 +1,10 @@
+
+<html>
+<body bgcolor = "cyan">
+<marque direction = "right">Welcome to Mphasis</marque>
+<%! int cube(int x){
+	return(x*x*x);	
+}%>
+<p>Cube is <%= cube(5) %></p>
+</body>
+</html>

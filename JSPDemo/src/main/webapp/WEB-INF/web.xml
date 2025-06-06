@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+
+	 <servlet>
+	 <servlet-name>First</servlet-name>
+	 <servlet-class>com.example.ServletDemo</servlet-class>
+	 <init-param>
+	 <param-name>username</param-name>
+	 <param-value>Admin</param-value>
+	 </init-param>
+	 <init-param>
+	 <param-name>password</param-name>
+	 <param-value>mphasis</param-value>
+	 </init-param>
+	 </servlet>
+	 <servlet-mapping>
+	 <servlet-name>First</servlet-name>
+	 <url-pattern>/abc</url-pattern>
+	 </servlet-mapping>
+	
+	 
+	
+	 <servlet>
+	 <servlet-name>Sec</servlet-name>
+	 <servlet-class>com.example.SecondServlet</servlet-class>
+	 </servlet>
+	 <servlet-mapping>
+	 <servlet-name>Sec</servlet-name>
+	 <url-pattern>/sec</url-pattern>
+	 </servlet-mapping>
+	
+	 
+	 <servlet>
+	 <servlet-name>MyJSP</servlet-name>
+	 <jsp-file>/First.jsp</jsp-file>
+	 <init-param>
+	 <param-name>empname</param-name>
+	 <param-value>bhuvan</param-value>
+	 </init-param>
+	 </servlet>
+	 <servlet-mapping>
+	 <servlet-name>MyJSP</servlet-name>
+	 <url-pattern>/xxx</url-pattern>
+	 </servlet-mapping>
+	 
+	 <context-param>
+	 <param-name>data</param-name>
+	 <param-value>Developers</param-value>
+	 </context-param>
+	 
+	 
+	 
+	</web-app>

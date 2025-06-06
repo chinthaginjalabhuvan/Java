@@ -1,0 +1,27 @@
+package com.ex;
+
+public class Monkey {
+public static void eat()
+{
+	System.out.println("Eats Bananas");
+}
+private void run()
+{
+	System.out.println("Runs fast");
+}
+protected void jump()
+{
+	System.out.println("Jumps Higly");
+}
+protected static void walk()
+{
+	System.out.println("Walks Fast");
+}
+public static void main(String[] args) {
+	Monkey m=new Monkey();
+	m.jump();
+	m.walk();
+	m.run();
+	eat();
+}
+}

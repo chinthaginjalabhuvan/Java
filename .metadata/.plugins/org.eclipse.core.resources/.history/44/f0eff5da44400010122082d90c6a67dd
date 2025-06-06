@@ -1,0 +1,15 @@
+<html>
+
+<body bgcolor="#fadbd8 ">
+
+<form action="Welcome.jsp">
+
+Enter url : <input type="text" name="url"/><br/>
+
+<button type="submit">Click me</button>
+
+</form>
+
+</body>
+
+</html>

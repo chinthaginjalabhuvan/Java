@@ -1,0 +1,17 @@
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<html>
+
+<body>
+<%RailwayCrossingBean rcb=(RailwayCrossingBean)session.getAttribute("update") %>
+<form action="UpdateCrossingForm.jsp">
+Enter name :<input type="text" value=<%=rcb.getName() %> name="name"/><br/>
+Enter Address :<input type="text" value=<%=rcb.getAddress() %> name="address"/><br/>
+Enter landmark :<input type="text" value=<%=rcb.getLandmark() %> name="landmark"/><br/>
+Enter trainschedules:<input type="text" value=<%=rcb.getTrainschedules() %> name="trainschedules"/><br/>
+Enter PersonIncharge : <input type="text" value=<%=rcb.getPersonincharges() %> name="personincharges"/><br/>
+Enter status : <input type="text" value=<%=rcb.getStatus() %> name="status"/><br/>
+<button type="submit">Update RailwayCrossing</button>
+</form>
+
+</body>
+</html>

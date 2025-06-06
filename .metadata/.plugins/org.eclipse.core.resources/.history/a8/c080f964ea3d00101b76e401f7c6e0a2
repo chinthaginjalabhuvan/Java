@@ -1,0 +1,5 @@
+package com.bikestores.util;
+
+public class DBConnection {
+
+}

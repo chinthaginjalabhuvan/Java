@@ -1,0 +1,57 @@
+package com.example;
+
+import java.util.*;
+
+public class EmployeeDemo {
+
+public static void main(String[] args) {
+
+	EmployeeBean eb1=new EmployeeBean();
+	
+	eb1.setEmpid(101);
+	
+	eb1.setEmpname("Rajesh");
+	
+	eb1.setEmpsalary(54000);
+	
+	
+	
+	EmployeeBean eb2=new EmployeeBean();
+	
+	eb2.setEmpid(102);
+	
+	eb2.setEmpname("Karthik");
+	
+	eb2.setEmpsalary(56000);
+	
+	
+	
+	EmployeeBean eb3=new EmployeeBean();
+	
+	eb3.setEmpid(103);
+	
+	eb3.setEmpname("Manoj");
+	
+	eb3.setEmpsalary(58000);
+	
+	
+	
+	ArrayList<EmployeeBean> al=new ArrayList<EmployeeBean>();
+	
+	al.add(eb1);
+	
+	al.add(eb2);
+	
+	al.add(eb3);
+	
+	for(EmployeeBean eb:al)
+	
+	{
+	
+		System.out.println(eb.getEmpid()+" "+eb.getEmpname()+" "+eb.getEmpsalary());
+	
+	}
+	
+	}
+
+}

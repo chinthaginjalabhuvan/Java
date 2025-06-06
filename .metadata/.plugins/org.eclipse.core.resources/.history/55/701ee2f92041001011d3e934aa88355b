@@ -1,0 +1,8 @@
+package com.example.controller;
+
+import javax.servlet.annotation.WebServlet;
+
+public class StudentController extends HttpServlet{
+	@WebServlet("/add")
+	
+}

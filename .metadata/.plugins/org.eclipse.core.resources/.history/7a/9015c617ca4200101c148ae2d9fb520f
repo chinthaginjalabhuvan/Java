@@ -1,0 +1,45 @@
+
+<%@page import="com.railway.dao.RailwayCrossingDao"%>
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Crossing</title>
+</head>
+<body>
+<h1>Update Crossing Page</h1>
+ 
+<%
+   
+    String name = (String) session.getAttribute("aaa");
+    String address = request.getParameter("address");
+    String landmark = request.getParameter("landmark");
+    String trainschedules = request.getParameter("trainschedules");
+    String personincharges = request.getParameter("personincharges");
+    String status = request.getParameter("status");
+ 
+    RailwayCrossingBean rcb = new RailwayCrossingBean();
+    rcb.setName(name);
+    rcb.setAddress(address);
+    rcb.setLandmark(landmark);
+    rcb.setTrainschedules(trainschedules);
+    rcb.setPersonincharges(personincharges);
+    rcb.setStatus(status);
+ 
+    int result = RailwayCrossingDao.updateByName(rcb);
+ 
+    if(result == 1){
+%>
+<jsp:forward page="AdminHome.jsp"/>
+<%
+    } else {
+        out.println("Update Failed");
+    }
+%>
+ 
+</body>
+</html>
+

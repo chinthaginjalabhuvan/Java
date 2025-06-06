@@ -1,0 +1,27 @@
+
+<html>
+<body bgcolor="#fadbd8">
+<hr/>
+<h1>Add Student</h1>
+<form action="AddStudent.jsp">
+Enter rollno:<input type="text" name="rollno"/><br/>
+Enter name:<input type="text" name="name"/><br/>
+Enter Branch:<input type="text" name="branch"/><br/>
+<button type="submit">Add Student</button>
+</form>
+<hr/>
+<h1>Update Student</h1>
+<form action="UpdateStudent.jsp">
+Enter rollno:<input type="text" name="rollno"/><br/>
+Enter name:<input type="text" name="name"/><br/>
+Enter Branch:<input type="text" name="branch"/><br/>
+<button type="submit">Update Student</button>
+</form>
+<hr/>
+<h1>Delete Student</h1>
+<form action="DeleteStudent.jsp">
+Enter rollno:<input type="text" name="rollno"/><br/>
+<button type="submit">Delete Student</button>
+</form>
+</body>
+</html>

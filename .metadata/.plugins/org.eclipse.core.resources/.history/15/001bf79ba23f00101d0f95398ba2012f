@@ -1,0 +1,23 @@
+package com.example;
+
+import javax.swing.JOptionPane;
+public class Prime {
+	public static void main(String[] args) {
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Enter a number"));
+		
+		int count = 0;
+		for (int i=1;i<n;i++) {
+			if(i%n == 0) {
+				count++;
+			}
+		}
+		
+		if(count == 2) {
+			JOptionPane.showMessageDialog(null, "it is a prime");
+		}else {
+			JOptionPane.showMessageDialog(null, "it is not a prime");
+		}
+		
+		
+	}
+}

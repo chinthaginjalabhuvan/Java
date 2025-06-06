@@ -1,0 +1,24 @@
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<%@page import="com.railway.dao.RailwayCrossingDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Update Crossing Page</h1>	
+	<%String n=(String)session.getAttribute("aaa");	
+	if(RailwayCrossingDao.updateByName(RailwayCrossingBean rb)==1)	
+	{%>	
+		<jsp:forward page="AdminHome.jsp"/>	
+	<%}	
+	else	
+	{	
+		out.println("Not Deleted");	
+	}
+	%>
+</body>
+</html>

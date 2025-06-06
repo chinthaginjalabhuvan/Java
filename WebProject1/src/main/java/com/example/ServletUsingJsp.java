@@ -1,0 +1,51 @@
+package com.example;
+
+
+
+import java.io.IOException;
+
+import java.io.PrintWriter;
+
+
+
+import javax.servlet.ServletException;
+
+import javax.servlet.annotation.WebServlet;
+
+import javax.servlet.http.*;
+
+@WebServlet("/jsp")
+
+public class ServletUsingJsp extends HttpServlet{
+
+@Override
+
+public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+res.setContentType("text/html");
+
+PrintWriter pw=res.getWriter();
+
+pw.println("<html><body bgcolor='pink'>");
+
+pw.println("<form action='Second.jsp' method='post'>");
+
+pw.println("Enter username : <input type='text' name='user'/>");
+
+pw.println("<button type='submit'>Click me</button></form>");
+
+pw.println("</body></html>");
+
+}
+
+@Override
+
+public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+// TODO Auto-generated method stub
+
+doGet(req, res);
+
+}
+
+}

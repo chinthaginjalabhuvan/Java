@@ -1,0 +1,45 @@
+package com.example.controller;
+
+package com.example.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+import com.example.bean.StudentBean;
+import com.example.dao.StudentDao;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+import com.example.bean.StudentBean;
+import com.example.dao.StudentDao;
+
+@WebServlet("/delete")
+
+public class StudentDeleteController {
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.setContentType("text/html");
+		int rno=Integer.parseInt(req.getParameter("rollno"));
+		
+		StudentBean sb = new StudentBean();
+		sb.setRollno(rno);
+
+		
+		PrintWriter pw=res.getWriter();
+		pw.println("<html><body bgcolor='D5E5D5'>");
+//		pw.println("<p>Rollno "+rno+" Name "+sname+" Branch "+sbranch);
+
+		pw.println(StudentDao.deleteStudent(rno));
+		StudentDao.getCon();
+		pw.println("</body></html>");
+	
+	}
+}
+

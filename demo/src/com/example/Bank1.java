@@ -1,0 +1,18 @@
+package com.example;
+
+public class Bank1 {   //static variable example
+	
+	static int amount = 2000;
+
+	public static void main(String[] args) {
+		Bank1 b1 = new Bank1();
+		Bank1 b2 = new Bank1();
+		b1.amount += 5000;
+		System.out.println("First object "+b1.amount);
+		System.out.println("Second object "+b2.amount);
+		System.out.println("Class object "+Bank1.amount);
+		
+
+	}
+
+}

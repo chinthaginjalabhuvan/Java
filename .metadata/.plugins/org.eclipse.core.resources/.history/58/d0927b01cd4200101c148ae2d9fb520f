@@ -1,0 +1,8 @@
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<html>
+
+<body>
+<%RailwayCrossingBean rcb=(RailwayCrossingBean)session.getAttribute("update") %>
+<form
+</body>
+</html>

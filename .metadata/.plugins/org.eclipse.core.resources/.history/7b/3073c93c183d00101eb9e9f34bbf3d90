@@ -1,0 +1,6 @@
+package com.model;
+
+public class Product {
+	private String brand;
+	private double price;
+}

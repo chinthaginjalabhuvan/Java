@@ -1,0 +1,48 @@
+<%@page import="com.railway.dao.RailwayCrossingDao"%>
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<%@page import="java.util.ArrayList"%>
+
+<html>
+
+	<head>
+		<style>
+			#status{
+			width:200px;
+			}
+			
+			button{
+			float:left;
+			}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h1>User Home Page</h1>
+		<%
+		int i=1;
+		ArrayList<RailwayCrossingBean> all=RailwayCrossingDao.selectAll();%>
+		
+		<table border="4">
+		<tr><th>Sr.No</th><th>Name</th><th>Address</th><th>Landmark</th><th>Train Schedule</th><th>Person In-charge</th><th>Status</th><th id="act">Action</th></tr>
+		<%
+		for(RailwayCrossingBean rcb:all){
+			%>
+			<tr>
+			<td><%=i %></td><td><%=rcb.getName() %></td><td><%=rcb.getLandmark() %></td><td><%=rcb.getTrainschedules() %></td><td><%=rcb.getPersonincharges() %></td><td><%=rcb.getStatus() %></td>
+			<td id="status">		
+			<form action="UpdateCrossingForm.jsp"><button type="submit">Update</button>		
+			</form>		
+			<form action="DeleteCrossingForm.jsp">		
+			<%session.setAttribute("aaa",rcb.getName()); %>		
+			<button type="submit">Delete</button>		
+			</form>						
+			</td>		
+		<%i++;}%>		
+		</tr>						
+		</table>
+		
+	</body>
+
+</html>
+

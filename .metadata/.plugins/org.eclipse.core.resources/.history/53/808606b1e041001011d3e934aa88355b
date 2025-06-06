@@ -1,0 +1,15 @@
+<html>
+
+<body bgcolor="blue">
+
+Hai <%=session.getAttribute("aaa") %>
+
+<%session.invalidate(); %>
+
+<br/>
+
+<a href="four.jsp">Click me</a>
+
+</body>
+
+</html>

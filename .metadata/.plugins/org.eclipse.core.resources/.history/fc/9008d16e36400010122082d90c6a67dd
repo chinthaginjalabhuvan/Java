@@ -1,0 +1,8 @@
+<%@ page import="com.example.Calc" %>
+<html>
+<body bgcolor="yellow">
+<p>Addition is <%= Calc.add(22,33) %></p>
+<% Calc c = new Calc();
+out.println("Square is "+(c.square(10))); %>
+</body>
+</html>

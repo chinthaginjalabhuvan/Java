@@ -1,0 +1,8 @@
+<%@page import="com.example.dao.StudentDao" %>
+<%@page import="com.example.bean.StudentBean" %>
+<html>
+<body bgcolor="yellow">
+<% int rno=Integer.parseInt(request.getParameter("rollno"));
+StudentBean sb=StudentDao.selectByRollno(rno);%>
+</body>
+</html>

@@ -1,0 +1,31 @@
+@WebServlet("/UpdateCrossingServlet")
+public class UpdateCrossingServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        String landmark = request.getParameter("landmark");
+        String schedule = request.getParameter("schedule");
+        String personInCharge = request.getParameter("personInCharge");
+        String status = request.getParameter("status");
+
+        // JDBC code to update data in the database
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+             PreparedStatement stmt = conn.prepareStatement("UPDATE railway_crossings SET address=?, landmark=?, schedule=?, person_in_charge=?, status=? WHERE name=?")) {
+            stmt.setString(1, address);
+            stmt.setString(2, landmark);
+            stmt.setString(3, schedule);
+            stmt.setString(4, personInCharge);
+            stmt.setString(5, status);
+            stmt.setString(6, name);
+            int rowsUpdated = stmt.executeUpdate();
+            
+            if (rowsUpdated > 0) {
+                response.sendRedirect("AdminHome.jsp");
+            } else {
+                response.getWriter().println("Update Failed");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

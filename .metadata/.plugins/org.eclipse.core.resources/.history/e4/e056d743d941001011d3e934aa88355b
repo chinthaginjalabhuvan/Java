@@ -1,0 +1,8 @@
+
+<html>
+
+<body bgcolor="yellow">
+	<p>Welcome to myfirst jsp</p>
+	<%=config.getInitParameter("empname") %>
+</body>
+</html>

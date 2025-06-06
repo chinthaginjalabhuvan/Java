@@ -1,0 +1,15 @@
+
+<%@page import="com.railway.bean.RegisterBean"%>
+<html>
+
+<body>
+<%String name=request.getParameter("name");
+String email=request.getParameter("email");
+String password=request.getParameter("pass");
+RegisterBean rb = new RegisterBean();
+rb.setName(name);
+rb.setEmail(email);
+rb.setPassword(password);
+%>
+</body>
+</html>

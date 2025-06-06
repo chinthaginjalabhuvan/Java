@@ -1,0 +1,5 @@
+package com.bikestores.model;
+
+public class Order {
+
+}

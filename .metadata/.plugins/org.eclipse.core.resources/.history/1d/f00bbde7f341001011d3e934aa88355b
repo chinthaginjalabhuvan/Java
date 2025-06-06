@@ -1,0 +1,23 @@
+<%@page import="com.example.dao.UserDao"%>
+
+<html>
+
+<body>
+
+	<%String user=request.getParameter("user");
+	String pass=request.getParameter("pass");
+	/* out.println(UsersDao.validate(user,pass)); */
+	if(UserDao.validate(user, pass).equals("Success"))
+	{%>
+	
+		<%@include file="Valid.html" %>
+	
+	<%}
+	else{
+	%>
+	<%@include file="Invalid.html" %>
+	<%} %>
+
+</body>
+
+</html>

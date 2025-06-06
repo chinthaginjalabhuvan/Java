@@ -1,0 +1,7 @@
+<%@page import="com.example.dao.StudentDao" %>
+<html>
+
+<body bgcolor="#e59be5 ">
+<%=ArrayList<StudentBean> allStudent=StudentDao.selectAll() %>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<%@page import="com.railway.dao.RailwayCrossingDao"%>
+<%@page import="com.railway.bean.RailwayCrossingBean"%>
+<%@page import="java.util.ArrayList"%>
+
+<html>
+
+	<head>
+		<style>
+			body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f8;
+  margin: 20px;
+  color: #333;
+}
+ 
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+ 
+table {
+  width: 90%;
+  margin: 0 auto 40px auto;
+  border-collapse: collapse;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+ 
+th, td {
+  padding: 14px 20px;
+  text-align: left;
+}
+ 
+th {
+  background-color: #2980b9;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+ 
+tr:nth-child(even) {
+  background-color: #f9fbfc;
+}
+ 
+tr:hover {
+  background-color: #d6eaff;
+  transition: background-color 0.3s ease;
+}
+ 
+#act {
+  width: 160px;
+  text-align: center;
+}
+ 
+#status form {
+  display: inline-block;
+  margin: 0 5px;
+}
+ 
+button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+ 
+button:hover {
+  background-color: #217dbb;
+}
+ 
+@media (max-width: 768px) {
+  table, th, td {
+    font-size: 14px;
+  }
+  #act {
+    width: auto;
+  }
+  button {
+    padding: 6px 10px;
+    font-size: 0.75em;
+  }
+}
+		</style>
+	</head>
+	
+	<body>
+	
+		<h1>Admin Home Page</h1>
+		<%
+		int i=1;
+		ArrayList<RailwayCrossingBean> all=RailwayCrossingDao.selectAll();%>
+		
+		<table border="4">
+		<tr><th>Sr.No</th><th>Name</th><th>Address</th><th>Landmark</th><th>Train Schedule</th><th>Person In-charge</th><th>Status</th><th id="act">Action</th></tr>
+		<%
+		for(RailwayCrossingBean rcb:all){
+			%>
+			<tr>
+			<td><%=i %></td><td><%=rcb.getName() %></td><td><%=rcb.getLandmark() %></td><td><%=rcb.getTrainschedules() %></td><td><%=rcb.getPersonincharges() %></td><td><%=rcb.getStatus() %></td>
+			<td id="status">		
+			<form action="UpdateCrossingForm.jsp"><button type="submit">Update</button>		
+			</form>		
+			<form action="DeleteCrossingForm.jsp">		
+			<%session.setAttribute("aaa",rcb.getName()); %>		
+			<button type="submit">Delete</button>		
+			</form>						
+			</td>		
+		<%i++;}%>		
+		</tr>						
+		</table>
+		
+	</body>
+
+</html>
+

@@ -1,0 +1,17 @@
+<html>
+
+<body bgcolor="green">
+
+<form action="./add">
+Enter Student Rollno : <input type="text" name="rollno"/><br/>
+
+Enter Student Name :<input type="text" name="name"/><br/>
+
+Enter Student Branch : <input type="text" name="branch"/><br/>
+
+<button type="submit">Add Student</button>
+</form>
+
+</body>
+
+</html>
